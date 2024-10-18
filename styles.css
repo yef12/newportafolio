@@ -1,0 +1,733 @@
+/* Reset de margenes y paddings */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Estilo del cuerpo */
+body {
+	font-family: 'Poppins', sans-serif;
+	line-height: 1.6;
+	background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+	color: #333;
+	scroll-behavior: smooth;
+}
+
+/* Estilo de la cabecera y la barra de navegación */
+/* HEADER */
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: var(--header-height);
+	background-color: transparent;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 2rem;
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+	z-index: 100;
+	transition: background-color 0.3s ease;
+}
+
+header.scrolled {
+	background-color: var(--bg-color-section2);
+}
+
+.navbar__logo {
+	display: flex;
+	align-items: center;
+	font-weight: var(--font-semi-bold);
+	color: var(--primary-color);
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+/* NAVBAR MENU */
+/* HEADER STYLES */
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.9);
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+}
+
+/* NAVBAR MENU */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 2rem;
+}
+
+.navbar__logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: var(--primary-color);
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.navbar__logo i {
+	font-size: 1.8rem;
+	color: #ea4959;
+}
+
+/* NAVBAR MENU ITEMS */
+.navbar__menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navbar__list {
+	display: flex;
+	list-style: none;
+	gap: 2rem;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar__item {
+	position: relative;
+}
+
+.navbar__link {
+	font-size: 1.1rem;
+	color: var(--primary-color);
+	font-weight: var(--font-semi-bold);
+	text-decoration: none;
+	padding: 0.5rem;
+	transition: color 0.3s ease;
+}
+
+.navbar__link:hover {
+	color: #ea4959;
+}
+
+.navbar__link.active {
+	border-bottom: 2px solid #ea4959;
+}
+
+/* BOTÓN DE CIERRE */
+.btn__close {
+	display: none;
+}
+
+@media screen and (max-width: 768px) {
+	.navbar__menu {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: var(--bg-color-section2);
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 2rem;
+		transition: top 0.6s ease;
+	}
+
+	.navbar__list {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.btn__close {
+		display: block;
+		position: absolute;
+		top: 1.5rem;
+		right: 1.5rem;
+		font-size: 2rem;
+		color: #ea4959;
+		cursor: pointer;
+	}
+
+	.navbar__menu.active {
+		top: 0;
+	}
+}
+
+/* DARKMODE TOGGLE */
+.navbar__toggle--darkmode {
+	display: flex;
+	align-items: center;
+}
+
+.navbar__toggle--darkmode-label {
+	width: 42px;
+	height: 20px;
+	background: #ebebeb;
+	border-radius: 20px;
+	position: relative;
+	cursor: pointer;
+	transition: background 0.3s ease;
+}
+
+.navbar__toggle--darkmode-label::after {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 16px;
+	height: 16px;
+	background: linear-gradient(180deg, #ffcc89, #d8860b);
+	border-radius: 50%;
+	transition: 0.3s;
+}
+
+.navbar__toggle--darkmode-input:checked + .navbar__toggle--darkmode-label {
+	background: #242424;
+}
+
+.navbar__toggle--darkmode-input:checked
+	+ .navbar__toggle--darkmode-label::after {
+	left: 24px;
+	background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.navbar__toggle--darkmode-input {
+	display: none;
+}
+
+/* ICONOS SOL/LUNA */
+.navbar__toggle--darkmode-sun,
+.navbar__toggle--darkmode-moon {
+	position: absolute;
+	font-size: 14px;
+	top: 3px;
+}
+
+.navbar__toggle--darkmode-sun {
+	left: 4px;
+	color: var(--bg-color-section2);
+}
+
+.navbar__toggle--darkmode-moon {
+	right: 4px;
+	color: #7e7e7e;
+}
+
+/* Toggler Darkmode Efectos */
+.navbar__toggle--darkmode-input:checked
+	+ .navbar__toggle--darkmode-label
+	.navbar__toggle--darkmode-sun {
+	color: #7e7e7e;
+}
+
+.navbar__toggle--darkmode-input:checked
+	+ .navbar__toggle--darkmode-label
+	.navbar__toggle--darkmode-moon {
+	color: var(--bg-color-section2);
+}
+
+/* Estilo para el botón de la barra de navegación en pantallas pequeñas */
+.navbar-toggler {
+	border: none;
+	background-color: #f4d03f;
+	outline: none;
+}
+
+.navbar-toggler:hover {
+	background-color: #e2c029;
+}
+
+/* Sección Sobre mí */
+#about {
+	background-color: #f4f4f4;
+	padding: 100px 0;
+	text-align: center;
+}
+
+#about h2 {
+	font-size: 2.5rem;
+	color: #333;
+	margin-bottom: 20px;
+	font-family: 'Poppins', sans-serif;
+	position: relative;
+	display: inline-block;
+}
+
+#about h2::after {
+	content: '';
+	width: 120px;
+	height: 5px;
+	background-color: #f39c12;
+	position: absolute;
+	bottom: -20px;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 5px;
+}
+
+.about-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+	margin: 50px 0;
+	flex-wrap: wrap;
+}
+
+.about-text {
+	max-width: 600px;
+	text-align: left;
+}
+
+.about-text p {
+	font-size: 1.2rem;
+	color: #666;
+	line-height: 1.6;
+}
+
+.about-image img {
+	border-radius: 50%;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	width: 300px;
+	height: 300px;
+}
+
+/* Estilo de habilidades */
+.skills {
+	margin-top: 50px;
+}
+
+.skills h3 {
+	font-size: 2rem;
+	color: #333;
+	margin-bottom: 20px;
+}
+
+.skill-card {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+
+.skill {
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding: 20px;
+	width: 150px;
+	text-align: center;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skill i {
+	font-size: 2.5rem;
+	color: #f39c12;
+	margin-bottom: 10px;
+}
+
+.skill h4 {
+	font-size: 1.2rem;
+	color: #333;
+}
+
+/* Ajustes responsivos */
+@media screen and (max-width: 768px) {
+	.about-container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.about-image img {
+		width: 80%;
+		height: auto;
+	}
+}
+
+/* Sección Proyectos */
+#projects {
+	background-color: #f4f4f9;
+	padding: 100px 0;
+	position: relative;
+}
+
+#projects h2 {
+	font-size: 2.5rem;
+	color: #333;
+	text-align: center;
+	margin-bottom: 50px;
+	position: relative;
+	display: inline-block;
+}
+
+#projects h2::after {
+	content: '';
+	width: 100px;
+	height: 5px;
+	background-color: #f4d03f;
+	position: absolute;
+	bottom: -15px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.card {
+	border: none;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.card img {
+	border-radius: 10px 10px 0 0;
+}
+
+.card:hover {
+	transform: translateY(-15px);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+	font-size: 1.6rem;
+	color: #2c5364;
+	margin-top: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.card-text {
+	font-size: 1.1rem;
+	color: #666;
+	margin-bottom: 20px;
+	line-height: 1.6;
+}
+
+.btn-primary {
+	background-color: #f4d03f;
+	border-color: #f4d03f;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 20px;
+	padding: 10px 20px;
+	transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+	background-color: #e2c029;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección Habilidades */
+#skills {
+	background-color: #ffffff;
+	padding: 100px 0;
+	text-align: center;
+}
+
+#skills h2 {
+	font-size: 2.5rem;
+	color: #333;
+	text-align: center;
+	margin-bottom: 50px;
+	position: relative;
+	display: inline-block;
+}
+
+#skills h2::after {
+	content: '';
+	width: 100px;
+	height: 5px;
+	background-color: #f4d03f;
+	position: absolute;
+	bottom: -15px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+/* Contenedor de las habilidades */
+.skill-container {
+	width: 80%;
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+/* Estilo de cada habilidad */
+.skill {
+	margin-bottom: 30px;
+}
+
+.skill-title {
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+/* Barra de progreso */
+.progress-bar-container {
+	width: 100%;
+	background-color: #ebebeb;
+	border-radius: 50px;
+	overflow: hidden;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	position: relative;
+}
+
+.progress-bar {
+	height: 20px;
+	border-radius: 50px;
+	background: linear-gradient(90deg, #f4d03f, #f39c12);
+	width: 0;
+	transition: width 2s ease-out;
+}
+
+.progress-bar[data-skill='html'] {
+	width: 90%; /* Cambia este valor según el nivel de habilidad */
+}
+
+.progress-bar[data-skill='css'] {
+	width: 85%;
+}
+
+.progress-bar[data-skill='javascript'] {
+	width: 80%;
+}
+
+.progress-bar[data-skill='react'] {
+	width: 75%;
+}
+
+.progress-bar[data-skill='node'] {
+	width: 70%;
+}
+
+/* Animación para que las barras se llenen al hacer scroll */
+.skill-container:hover .progress-bar {
+	width: 100%;
+}
+
+/* Sección Contacto */
+/* Sección Contacto */
+#contact {
+	background-color: #ffffff;
+	padding: 100px 0;
+	text-align: center;
+}
+
+#contact h2 {
+	font-size: 2.5rem;
+	color: #333;
+	margin-bottom: 20px;
+	font-family: 'Poppins', sans-serif;
+	position: relative;
+	display: inline-block;
+}
+
+#contact h2::after {
+	content: '';
+	width: 120px;
+	height: 5px;
+	background-color: #f4d03f;
+	position: absolute;
+	bottom: -20px;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 5px;
+}
+
+#contact p {
+	font-size: 1.2rem;
+	color: #666;
+	margin-bottom: 40px;
+}
+
+/* Opciones de contacto */
+.contact-options {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 30px;
+	margin-bottom: 50px;
+}
+
+.contact-option {
+	background-color: #f8f8f8;
+	border-radius: 10px;
+	padding: 20px;
+	width: 200px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s;
+}
+
+.contact-option:hover {
+	transform: translateY(-5px);
+}
+
+.contact-option i {
+	font-size: 2rem;
+	color: #f39c12;
+	margin-bottom: 10px;
+}
+
+.contact-option h3 {
+	font-size: 1.5rem;
+	color: #333;
+	margin-bottom: 5px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.contact-option p {
+	font-size: 1rem;
+	color: #666;
+}
+
+/* Estilo del formulario */
+form {
+	width: 90%;
+	max-width: 600px;
+	margin: 0 auto;
+	background-color: #f9f9f9;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+	color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 1rem;
+}
+
+.form-group textarea {
+	height: 100px;
+	resize: none;
+}
+
+button {
+	padding: 10px 20px;
+	background-color: #f39c12;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+button:hover {
+	background-color: #e67e22;
+}
+
+/* Ajustes responsivos */
+@media screen and (max-width: 768px) {
+	.contact-options {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#contact h2 {
+		font-size: 2rem;
+	}
+
+	.contact-option {
+		width: 80%;
+	}
+}
+
+/* Redes sociales */
+ul.list-group.text-center li {
+	display: inline-block;
+	margin: 10px;
+	font-size: 1.5rem;
+	transition: color 0.3s ease;
+}
+
+ul.list-group.text-center li:hover {
+	color: #f4d03f;
+}
+
+/* Estilo del pie de página */
+footer {
+	background-color: #2c5364;
+	color: #fff;
+	padding: 20px 0;
+	text-align: center;
+}
+
+footer p {
+	margin: 0;
+	font-size: 1rem;
+}
+
+footer p a {
+	color: #f4d03f;
+	text-decoration: none;
+}
+
+footer p a:hover {
+	color: #e2c029;
+	text-decoration: underline;
+}
+
+/* Animación de scroll suave en la navegación */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+	.navbar-nav {
+		text-align: center;
+	}
+
+	.navbar-brand {
+		font-size: 1.5rem;
+	}
+
+	.nav-link {
+		margin: 10px 0;
+	}
+
+	#about h1 {
+		font-size: 2.3rem;
+	}
+
+	#projects h2,
+	#skills h2,
+	#contact h2 {
+		font-size: 2rem;
+	}
+
+	.card-title {
+		font-size: 1.4rem;
+	}
+
+	.list-group-item {
+		font-size: 1.1rem;
+	}
+}
